@@ -3,191 +3,441 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jhoiti Kagawa - Flutter Developer</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Jhoiti Kagawa — Flutter Developer & Cloud FinOps</title>
+    <meta name="description" content="Jhoiti Kagawa — Desenvolvedor Flutter e Cloud FinOps Engineer. Criador dos apps Bíblia ACF Offline e Mensagens Evangélicas.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Background FX -->
+    <canvas id="particles"></canvas>
+    <div class="aurora">
+        <div class="aurora-blob b1"></div>
+        <div class="aurora-blob b2"></div>
+        <div class="aurora-blob b3"></div>
+    </div>
+    <div class="grid-overlay"></div>
+    <div class="cursor-glow" id="cursorGlow"></div>
+    <div class="scroll-progress" id="scrollProgress"></div>
+
     <!-- Navigation -->
-    <nav class="navbar">
+    <nav class="navbar" id="navbar">
         <div class="container">
-            <div class="nav-brand">Jhoiti Kagawa</div>
-            <ul class="nav-menu">
+            <a href="#home" class="nav-brand">
+                <span class="brand-bracket">&lt;</span>JK<span class="brand-bracket">/&gt;</span>
+            </a>
+            <ul class="nav-menu" id="navMenu">
                 <li><a href="#home" class="nav-link">Home</a></li>
                 <li><a href="#about" class="nav-link">Sobre</a></li>
+                <li><a href="#apps" class="nav-link">Apps</a></li>
+                <li><a href="#reviews" class="nav-link">Avaliações</a></li>
                 <li><a href="#experience" class="nav-link">Experiência</a></li>
-                <li><a href="#apps" class="nav-link">Aplicativos</a></li>
                 <li><a href="#contact" class="nav-link">Contato</a></li>
             </ul>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+            <button class="hamburger" id="hamburger" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Hero -->
     <section id="home" class="hero">
-        <div class="stars"></div>
         <div class="container hero-content">
-            <div class="hero-profile">
-                <div class="profile-image-container">
-                    <img src="assets/foto.jpg" alt="Jhoiti Kagawa" class="profile-image">
-                </div>
-                <h1 class="hero-name">Jhoiti Kagawa</h1>
-                <p class="hero-title">Cloud FinOps Engineer & Flutter Developer</p>
+            <div class="hero-badge reveal">
+                <span class="pulse-dot"></span> Disponível para novos projetos
             </div>
-            <p class="hero-description">Criando aplicações mobiles inovadoras e otimizando infraestrutura cloud com foco em performance e economia.</p>
-            <div class="hero-buttons">
-                <a href="#apps" class="btn btn-primary">Meus Projetos</a>
-                <a href="https://www.linkedin.com/in/jhoitikagawa/" target="_blank" class="btn btn-secondary">
+            <div class="profile-ring reveal">
+                <img src="assets/foto.jpg" alt="Jhoiti Kagawa" class="profile-image">
+            </div>
+            <h1 class="hero-name reveal">Jhoiti Kagawa</h1>
+            <div class="hero-typing reveal">
+                <span class="typing-prefix">&gt;_</span>
+                <span id="typingText"></span><span class="typing-cursor">|</span>
+            </div>
+            <p class="hero-description reveal">
+                Criando aplicações mobile que impactam <strong>milhares de usuários</strong> e
+                otimizando infraestrutura cloud com foco em performance e economia.
+            </p>
+            <div class="hero-buttons reveal">
+                <a href="#apps" class="btn btn-primary">
+                    <i class="fas fa-rocket"></i> Ver Meus Apps
+                </a>
+                <a href="https://www.linkedin.com/in/jhoitikagawa/" target="_blank" rel="noopener" class="btn btn-glass">
                     <i class="fab fa-linkedin"></i> LinkedIn
                 </a>
             </div>
+            <div class="hero-stats reveal">
+                <div class="stat-card">
+                    <span class="stat-number" data-count="6000">0</span><span class="stat-plus">+</span>
+                    <span class="stat-label">Downloads</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number" data-count="4.8" data-decimal="1">0</span><span class="stat-plus">★</span>
+                    <span class="stat-label">Nota média</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number" data-count="3">0</span><span class="stat-plus"></span>
+                    <span class="stat-label">Apps publicados</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number" data-count="9">0</span><span class="stat-plus">+</span>
+                    <span class="stat-label">Anos de XP</span>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="mouse"><div class="wheel"></div></div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="about">
+    <!-- Tech Marquee -->
+    <div class="marquee-section">
+        <div class="marquee">
+            <div class="marquee-track">
+                <span><i class="fas fa-mobile-screen"></i> Flutter</span>
+                <span><i class="fas fa-code"></i> Dart</span>
+                <span><i class="fas fa-fire"></i> Firebase</span>
+                <span><i class="fab fa-aws"></i> AWS</span>
+                <span><i class="fab fa-microsoft"></i> Azure</span>
+                <span><i class="fas fa-cloud"></i> OCI</span>
+                <span><i class="fas fa-cubes"></i> Terraform</span>
+                <span><i class="fas fa-infinity"></i> CI/CD</span>
+                <span><i class="fas fa-chart-line"></i> FinOps</span>
+                <span><i class="fab fa-apple"></i> iOS</span>
+                <span><i class="fab fa-android"></i> Android</span>
+                <span><i class="fas fa-mobile-screen"></i> Flutter</span>
+                <span><i class="fas fa-code"></i> Dart</span>
+                <span><i class="fas fa-fire"></i> Firebase</span>
+                <span><i class="fab fa-aws"></i> AWS</span>
+                <span><i class="fab fa-microsoft"></i> Azure</span>
+                <span><i class="fas fa-cloud"></i> OCI</span>
+                <span><i class="fas fa-cubes"></i> Terraform</span>
+                <span><i class="fas fa-infinity"></i> CI/CD</span>
+                <span><i class="fas fa-chart-line"></i> FinOps</span>
+                <span><i class="fab fa-apple"></i> iOS</span>
+                <span><i class="fab fa-android"></i> Android</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- About -->
+    <section id="about" class="about section">
         <div class="container">
-            <h2 class="section-title">Sobre Mim</h2>
-            <div class="about-content">
-                <p class="about-intro">Sou um profissional apaixonado por tecnologia, com especialização em Cloud FinOps e desenvolvimento mobile. Minha missão é criar soluções inovadoras que otimizem custos e entreguem valor real aos usuários.</p>
-                <div class="skills-grid">
-                    <div class="skill-item">
-                        <div class="skill-icon">☁️</div>
-                        <h3>Cloud & FinOps</h3>
-                        <p>Azure, AWS, OCI, Terraform</p>
+            <span class="section-tag reveal">// sobre mim</span>
+            <h2 class="section-title reveal">Tecnologia com <span class="gradient-text">propósito</span></h2>
+            <p class="about-intro reveal">
+                Profissional apaixonado por tecnologia, com especialização em Cloud FinOps e desenvolvimento mobile.
+                Minha missão é criar soluções que otimizem custos e entreguem valor real a milhares de usuários.
+            </p>
+            <div class="skills-grid">
+                <div class="skill-item tilt reveal">
+                    <div class="skill-icon"><i class="fas fa-cloud"></i></div>
+                    <h3>Cloud & FinOps</h3>
+                    <p>Azure, AWS, OCI, Terraform</p>
+                    <div class="skill-glow"></div>
+                </div>
+                <div class="skill-item tilt reveal">
+                    <div class="skill-icon"><i class="fas fa-mobile-screen-button"></i></div>
+                    <h3>Mobile Development</h3>
+                    <p>Flutter, Dart, Firebase</p>
+                    <div class="skill-glow"></div>
+                </div>
+                <div class="skill-item tilt reveal">
+                    <div class="skill-icon"><i class="fas fa-gears"></i></div>
+                    <h3>DevOps & Infra</h3>
+                    <p>CI/CD, IaC, Automation</p>
+                    <div class="skill-glow"></div>
+                </div>
+                <div class="skill-item tilt reveal">
+                    <div class="skill-icon"><i class="fas fa-wand-magic-sparkles"></i></div>
+                    <h3>UI/UX Design</h3>
+                    <p>Interfaces modernas e intuitivas</p>
+                    <div class="skill-glow"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Apps -->
+    <section id="apps" class="apps section">
+        <div class="container">
+            <span class="section-tag reveal">// meus apps</span>
+            <h2 class="section-title reveal">Apps publicados nas <span class="gradient-text">lojas</span></h2>
+
+            <!-- App 1: Bíblia ACF -->
+            <div class="app-showcase reveal">
+                <div class="app-info">
+                    <div class="app-header">
+                        <img src="https://play-lh.googleusercontent.com/TEudv0KEZilyn12ISmWI7EF-Y4vyzdXyZm2Ga15KxXlvGWzXjWFRmEBFuX4NDGOzlMkSrSJ4ZHTeteslv8fMOg=s180" alt="Ícone Bíblia ACF Offline" class="app-icon" loading="lazy">
+                        <div>
+                            <h3>Bíblia ACF — Offline</h3>
+                            <div class="app-rating">
+                                <span class="stars">★★★★★</span>
+                                <span class="rating-value">4,9</span>
+                                <span class="rating-count">· 40 avaliações · 1 mil+ downloads</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="skill-item">
-                        <div class="skill-icon">📱</div>
-                        <h3>Mobile Development</h3>
-                        <p>Flutter, Dart, Firebase</p>
+                    <p class="app-desc">
+                        Bíblia Sagrada completa (Almeida Corrigida Fiel) que funciona <strong>100% offline</strong>.
+                        Acompanhe seu progresso de leitura, devocional diário, quiz bíblico com cards
+                        colecionáveis e interface limpa focada na leitura.
+                    </p>
+                    <div class="app-features">
+                        <span class="feature-chip"><i class="fas fa-plane"></i> 100% Offline</span>
+                        <span class="feature-chip"><i class="fas fa-chart-simple"></i> Progresso de leitura</span>
+                        <span class="feature-chip"><i class="fas fa-puzzle-piece"></i> Quiz bíblico</span>
+                        <span class="feature-chip"><i class="fas fa-sun"></i> Devocional diário</span>
                     </div>
-                    <div class="skill-item">
-                        <div class="skill-icon">⚙️</div>
-                        <h3>DevOps & Infrastructure</h3>
-                        <p>CI/CD, IaC, Automation</p>
+                    <div class="store-badges">
+                        <a href="https://play.google.com/store/apps/details?id=com.jmksolucoes.biblia" target="_blank" rel="noopener" class="store-badge">
+                            <i class="fab fa-google-play"></i>
+                            <span><small>DISPONÍVEL NO</small>Google Play</span>
+                        </a>
                     </div>
-                    <div class="skill-item">
-                        <div class="skill-icon">🎨</div>
-                        <h3>UI/UX Design</h3>
-                        <p>Design moderno e intuitivo</p>
+                </div>
+                <div class="app-gallery">
+                    <div class="phone-frame float-1">
+                        <img src="https://play-lh.googleusercontent.com/yf2ihTf4HNjuAHH32dqd-8skZsH7LxMdww5mVM8n0OLN1Zj-x3TQLhCmwjdmN02QrQ1_UwgKTokKheIhbgYN=w360-h740" alt="Screenshot Bíblia ACF" loading="lazy">
+                    </div>
+                    <div class="phone-frame main float-2">
+                        <img src="https://play-lh.googleusercontent.com/6AuR-py36UGl6sKelrV5o5v-1REH4XY2RVsaFghHulDusZL09P-ONNJuLOpgL0Ke1jRXrwZRyMJ3XR3yo_BXCM4=w360-h740" alt="Screenshot Bíblia ACF" loading="lazy">
+                    </div>
+                    <div class="phone-frame float-3">
+                        <img src="https://play-lh.googleusercontent.com/3nY9VpaTCQx1RNOqaQw8CSqlTXpleWSnmqoKic3AhmdRuElFSsDjVYeU4-5zfNayY0V4gMGndPeCH_1OxiJi_w=w360-h740" alt="Screenshot Bíblia ACF" loading="lazy">
+                    </div>
+                </div>
+            </div>
+
+            <!-- App 2: Mensagens Evangélicas (Android) -->
+            <div class="app-showcase reverse reveal">
+                <div class="app-info">
+                    <div class="app-header">
+                        <img src="https://play-lh.googleusercontent.com/04ASZ-qRNpAjl7NMfhDSZUe713tB0NFx6EM9KoSOppB_vdq5bv-XPhV5fbZYS7HyViwdFD6PglY-hlFcPXsQaw=s180" alt="Ícone Mensagens Evangélicas" class="app-icon" loading="lazy">
+                        <div>
+                            <h3>Mensagens Evangélicas</h3>
+                            <div class="app-rating">
+                                <span class="stars">★★★★★</span>
+                                <span class="rating-value">4,7</span>
+                                <span class="rating-count">· 72 avaliações · 5 mil+ downloads</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="app-desc">
+                        O app que reúne a Palavra de Deus, orações e pregações para crescer espiritualmente
+                        todos os dias. Pedidos de oração da comunidade, mensagens por categoria, sermões em
+                        áudio e devocional diário.
+                    </p>
+                    <div class="app-features">
+                        <span class="feature-chip"><i class="fas fa-hands-praying"></i> Pedidos de oração</span>
+                        <span class="feature-chip"><i class="fas fa-microphone-lines"></i> Sermões em áudio</span>
+                        <span class="feature-chip"><i class="fas fa-images"></i> Imagens cristãs</span>
+                        <span class="feature-chip"><i class="fas fa-moon"></i> Modo escuro</span>
+                    </div>
+                    <div class="store-badges">
+                        <a href="https://play.google.com/store/apps/details?id=com.jmksolucoes.mensagens" target="_blank" rel="noopener" class="store-badge">
+                            <i class="fab fa-google-play"></i>
+                            <span><small>DISPONÍVEL NO</small>Google Play</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="app-gallery">
+                    <div class="phone-frame float-1">
+                        <img src="https://play-lh.googleusercontent.com/AmQmOuhYxYEZHZ2eSThecaEK7oQRaq0WLMsxLcOBQv-raW-8hbtG3G6OTnskJRO1XAjcU5n4rRCKRvpd6vLh=w360-h740" alt="Screenshot Mensagens Evangélicas" loading="lazy">
+                    </div>
+                    <div class="phone-frame main float-2">
+                        <img src="https://play-lh.googleusercontent.com/tBGkDspDxhpF6gkw3wRcsAlpj7LI_5GlUfANju8qk16k2QbnwQBvJ_re3buiNn2_MIicCQ6FdQzpO_3MMYL1=w360-h740" alt="Screenshot Mensagens Evangélicas" loading="lazy">
+                    </div>
+                    <div class="phone-frame float-3">
+                        <img src="https://play-lh.googleusercontent.com/zMKkg_Kcq0RkeDfr3tTH8d4UfpeDO4yGkUvOdjSfozN-0vMRCAERr4nQ1hE1zy5DDX9HkAkXuw_johH-F2XRQg=w360-h740" alt="Screenshot Mensagens Evangélicas" loading="lazy">
+                    </div>
+                </div>
+            </div>
+
+            <!-- App 3: Mensagens Evangélicas Brasil (iOS) -->
+            <div class="app-showcase reveal">
+                <div class="app-info">
+                    <div class="app-header">
+                        <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/f1/be/d5/f1bed5cf-6b83-7b0d-facc-bf42fef23dd3/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/180x180bb.jpg" alt="Ícone Mensagens Evangélicas Brasil iOS" class="app-icon" loading="lazy">
+                        <div>
+                            <h3>Mensagens Evangélicas Brasil <span class="platform-tag"><i class="fab fa-apple"></i> iOS</span></h3>
+                            <div class="app-rating">
+                                <span class="rating-count"><i class="fas fa-bolt"></i> Novo na App Store · iPhone & iPad</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="app-desc">
+                        A experiência completa do Mensagens Evangélicas agora no <strong>iPhone e iPad</strong>.
+                        Pedidos de oração, devocional diário, sermões em áudio e imagens cristãs — tudo com
+                        o capricho do ecossistema Apple.
+                    </p>
+                    <div class="app-features">
+                        <span class="feature-chip"><i class="fab fa-apple"></i> iPhone & iPad</span>
+                        <span class="feature-chip"><i class="fas fa-users"></i> Family Sharing</span>
+                        <span class="feature-chip"><i class="fas fa-sun"></i> Devocional diário</span>
+                        <span class="feature-chip"><i class="fas fa-moon"></i> Modo escuro</span>
+                    </div>
+                    <div class="store-badges">
+                        <a href="https://apps.apple.com/us/app/mensagens-evang%C3%A9licas-brasil/id6781120437" target="_blank" rel="noopener" class="store-badge apple">
+                            <i class="fab fa-apple"></i>
+                            <span><small>BAIXAR NA</small>App Store</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="app-gallery single">
+                    <div class="ios-icon-showcase float-2">
+                        <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/f1/be/d5/f1bed5cf-6b83-7b0d-facc-bf42fef23dd3/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" alt="Mensagens Evangélicas Brasil iOS" loading="lazy">
+                        <div class="ios-icon-glow"></div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Experience Section -->
-    <section id="experience" class="experience">
+    <!-- Reviews -->
+    <section id="reviews" class="reviews section">
         <div class="container">
-            <h2 class="section-title">Experiência Profissional</h2>
+            <span class="section-tag reveal">// avaliações reais</span>
+            <h2 class="section-title reveal">O que os usuários <span class="gradient-text">dizem</span></h2>
+            <p class="section-subtitle reveal">Comentários verificados direto da Google Play Store</p>
+        </div>
+        <div class="reviews-track-wrap reveal">
+            <div class="reviews-track">
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p>"Sensacional, 10 ESTRELAS! Texto sem distorções, compartilha, tem quiz, destaca o texto. Já usei vários apps de Bíblia na Play Store — na minha opinião, esse é o MELHOR!"</p>
+                    <div class="review-author">
+                        <div class="review-avatar">A</div>
+                        <div><strong>Alberto F. Lima</strong><span>Bíblia ACF — Offline</span></div>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p>"Estou dando 5 estrelas para esse EXCEPCIONAL aplicativo. Parabéns para os idealizadores, realmente esse aplicativo é SHOW!"</p>
+                    <div class="review-author">
+                        <div class="review-avatar">A</div>
+                        <div><strong>Anastacio Jose</strong><span>Mensagens Evangélicas</span></div>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p>"Ótimo! As mensagens são inspiradoras e lindas, com várias opções por categorias. Parabéns 👏 aos desenvolvedores."</p>
+                    <div class="review-author">
+                        <div class="review-avatar">A</div>
+                        <div><strong>Ana Maria</strong><span>Mensagens Evangélicas</span></div>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p>"Vale muito ter esse aplicativo no seu dispositivo. Experiência muito positiva, e ainda tem a vantagem de poder ser lida offline. Confira, você vai gostar!"</p>
+                    <div class="review-author">
+                        <div class="review-avatar">J</div>
+                        <div><strong>J. A. Melo Araújo</strong><span>Bíblia ACF — Offline</span></div>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p>"Maravilhoso aplicativo, parabéns aos desenvolvedores! Super recomendo a quem quer estudar a Bíblia num app bem elaborado e simples ao mesmo tempo."</p>
+                    <div class="review-author">
+                        <div class="review-avatar">W</div>
+                        <div><strong>Welington F. Silva</strong><span>Bíblia ACF — Offline</span></div>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p>"Excelente aplicativo! Mensagens evangélicas perfeitas para colocar no status."</p>
+                    <div class="review-author">
+                        <div class="review-avatar">W</div>
+                        <div><strong>Weruska Oliveira</strong><span>Mensagens Evangélicas</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience" class="experience section">
+        <div class="container">
+            <span class="section-tag reveal">// carreira</span>
+            <h2 class="section-title reveal">Experiência <span class="gradient-text">Profissional</span></h2>
             <div class="timeline">
-                <div class="timeline-item">
+                <div class="timeline-item reveal">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
-                        <div class="timeline-date">Jul 2024 - Presente</div>
+                        <span class="timeline-date">Jul 2024 — Presente</span>
                         <h3>Cloud FinOps Engineer</h3>
-                        <h4>Luizalabs · Tempo Integral · Remota</h4>
+                        <h4><i class="fas fa-building"></i> Luizalabs · Remoto</h4>
                     </div>
                 </div>
-
-                <div class="timeline-item">
+                <div class="timeline-item reveal">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
-                        <div class="timeline-date">Mai 2023 - Jul 2024</div>
+                        <span class="timeline-date">Mai 2023 — Jul 2024</span>
                         <h3>Azure Cloud Engineer</h3>
-                        <h4>ORAEX CLOUD CONSULTING · Tempo Integral · Remota</h4>
+                        <h4><i class="fas fa-building"></i> ORAEX Cloud Consulting · Remoto</h4>
                     </div>
                 </div>
-
-                <div class="timeline-item">
+                <div class="timeline-item reveal">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
-                        <div class="timeline-date">Abr 2021 - Mai 2023</div>
+                        <span class="timeline-date">Abr 2021 — Mai 2023</span>
                         <h3>Infrastructure Engineer</h3>
-                        <h4>NTT DATA, Inc. · Tempo Integral · Brasil</h4>
+                        <h4><i class="fas fa-building"></i> NTT DATA, Inc. · Brasil</h4>
                     </div>
                 </div>
-
-                <div class="timeline-item">
+                <div class="timeline-item reveal">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
-                        <div class="timeline-date">Abr 2019 - Abr 2021</div>
+                        <span class="timeline-date">Abr 2019 — Abr 2021</span>
                         <h3>Support Engineer</h3>
-                        <h4>NTT Ltd. · Tempo Integral · Brasil</h4>
+                        <h4><i class="fas fa-building"></i> NTT Ltd. · Brasil</h4>
                     </div>
                 </div>
-
-                <div class="timeline-item">
+                <div class="timeline-item reveal">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
-                        <div class="timeline-date">Dez 2016 - Abr 2019</div>
+                        <span class="timeline-date">Dez 2016 — Abr 2019</span>
                         <h3>Software Engineer</h3>
-                        <h4>Mobview Information Tecnology · São Joaquim da Barra, SP</h4>
+                        <h4><i class="fas fa-building"></i> Mobview · São Joaquim da Barra, SP</h4>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Apps Section -->
-    <section id="apps" class="apps">
+    <!-- Contact -->
+    <section id="contact" class="contact section">
         <div class="container">
-            <h2 class="section-title">Meus Aplicativos</h2>
-            <div class="apps-grid">
-                <div class="app-card">
-                    <div class="app-screenshots">
-                        <img src="assets/pagina1.png" alt="Screenshot 1" class="screenshot">
-                        <img src="assets/pagina2.png" alt="Screenshot 2" class="screenshot">
-                        <img src="assets/pagina3.png" alt="Screenshot 3" class="screenshot">
-                    </div>
-                    <div class="app-icon">
-                        <i class="fas fa-book"></i>
-                    </div>
-                    <h3>Bíblia ACF - Offline</h3>
-                    <p>Um aplicativo de leitura bíblica completo com suporte offline, perfeito para estudo e meditação.</p>
-                    <div class="app-stats">
-                        <span class="stat"><i class="fas fa-star"></i> 4.5★</span>
-                        <span class="stat"><i class="fas fa-download"></i> 10K+</span>
-                    </div>
-                    <a href="https://play.google.com/store/apps/details?id=com.jmksolucoes.biblia" target="_blank" class="app-link">
-                        <i class="fab fa-google-play"></i> Play Store
+            <div class="contact-card reveal">
+                <span class="section-tag">// contato</span>
+                <h2 class="section-title">Vamos construir algo <span class="gradient-text">incrível</span>?</h2>
+                <p class="section-subtitle">Aberto a colaborações, freelas e novas oportunidades.</p>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/jhoitikagawa/" target="_blank" rel="noopener" class="social-btn">
+                        <i class="fab fa-linkedin"></i><span>LinkedIn</span>
+                    </a>
+                    <a href="https://play.google.com/store/apps/developer?id=Jmk+Solu%C3%A7%C3%B5es" target="_blank" rel="noopener" class="social-btn">
+                        <i class="fab fa-google-play"></i><span>Play Store</span>
+                    </a>
+                    <a href="https://apps.apple.com/us/developer/jhoiti-mamoru-kagawa/id6781120439" target="_blank" rel="noopener" class="social-btn">
+                        <i class="fab fa-app-store-ios"></i><span>App Store</span>
+                    </a>
+                    <a href="mailto:suporte.jmk@gmail.com" class="social-btn">
+                        <i class="fas fa-envelope"></i><span>E-mail</span>
                     </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2 class="section-title">Conecte-se Comigo</h2>
-            <div class="social-links">
-                <a href="https://www.linkedin.com/in/jhoitikagawa/" target="_blank" class="social-btn">
-                    <i class="fab fa-linkedin"></i>
-                    <span>LinkedIn</span>
-                </a>
-                <a href="https://github.com" target="_blank" class="social-btn">
-                    <i class="fab fa-github"></i>
-                    <span>GitHub</span>
-                </a>
-                <a href="https://play.google.com/store/apps/developer?id=jhoitikagawa" target="_blank" class="social-btn">
-                    <i class="fab fa-google-play"></i>
-                    <span>Play Store</span>
-                </a>
-            </div>
-            <p class="contact-email">📧 Entre em contato para oportunidades de colaboração</p>
-        </div>
-    </section>
-
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2026 Jhoiti Kagawa. Todos os direitos reservados.</p>
-            <p class="footer-tech">Built with <i class="fas fa-heart"></i> and Flutter</p>
+            <p>&copy; 2026 Jhoiti Kagawa · JMK Soluções. Todos os direitos reservados.</p>
+            <p class="footer-tech">Built with <i class="fas fa-heart"></i> Flutter & Cloud</p>
         </div>
     </footer>
 
