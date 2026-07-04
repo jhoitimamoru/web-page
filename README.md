@@ -1,236 +1,219 @@
-# Portfólio de Desenvolvedor Flutter - Jhoiti Kagawa
+# Portfolio Jhoiti Kagawa
 
-Um site moderno e responsivo para apresentar seus aplicativos Flutter, incluindo suporte para verificação do AdMob.
+Site portfolio moderno, animado e responsivo para apresentar apps Android/iOS, habilidades tecnicas e experiencia profissional.
 
-## 📁 Estrutura de Arquivos
+Projeto 100% estatico (HTML + CSS + JavaScript), sem build step e pronto para publicar em qualquer hosting.
 
-```
+## Visao Geral
+
+Este site foi desenhado para causar impacto visual logo na entrada, com foco em:
+
+- Presenca visual premium (glassmorphism, aurora, gradientes, glow e animacoes suaves)
+- Destaque dos apps com icones e screenshots oficiais das lojas
+- Prova social com comentarios positivos reais
+- Performance e simplicidade operacional
+
+## Funcionalidades Principais
+
+- Hero com typing effect dinamico
+- Particulas animadas em canvas no background
+- Glow que segue o cursor (desktop)
+- Barra de progresso de scroll
+- Navbar fixa com estado ativo por secao
+- Carrossel infinito de tecnologias
+- Cards com efeito 3D tilt e spotlight
+- Showcase de 3 apps (2 Android + 1 iOS)
+- Carrossel continuo de avaliacoes
+- Contadores animados no topo
+- Layout responsivo para mobile/tablet/desktop
+- Suporte a `prefers-reduced-motion` para acessibilidade
+
+## Estrutura do Projeto
+
+```text
 web-page/
-├── index.html          # Página principal (HTML)
-├── styles.css          # Estilos (CSS)
-├── script.js           # Interatividade (JavaScript)
-├── app-ads.txt         # Arquivo de verificação AdMob
-├── README.md           # Este arquivo
-└── .gitignore          # Arquivos a ignorar no Git
+├── index.html                         # Estrutura da pagina e conteudo
+├── styles.css                         # Tema, layout, animacoes e responsividade
+├── script.js                          # Interacoes e efeitos dinamicos
+├── app-ads.txt                        # Verificacao AdMob (raiz do dominio)
+├── googlea372c14b8981afe2.html        # Verificacao Google Search Console
+├── README.md                          # Documentacao
+├── .gitignore
+└── assets/
+    ├── foto.jpg                       # Foto de perfil usada no hero
+    ├── pagina1.png                    # Asset legado (nao usado na versao atual)
+    ├── pagina2.png                    # Asset legado (nao usado na versao atual)
+    └── pagina3.png                    # Asset legado (nao usado na versao atual)
 ```
 
-## 🚀 Recursos
+## Como Rodar Localmente
 
-- ✨ Design moderno e responsivo
-- 🎨 Gradientes animados e efeitos visual
-- 📱 Totalmente responsivo para mobile
-- ⚡ Performance otimizada
-- 🔗 Links para LinkedIn, Play Store e GitHub
-- 📊 Seção de habilidades com progresso visual
-- 🎯 App showcase com estatísticas
-- 📋 Arquivo app-ads.txt para AdMob
+Como o projeto e estatico, voce pode abrir direto no navegador.
 
-## 📋 O Que Está Incluído
+Opcao 1 (simples):
 
-### index.html
-- Navegação sticky responsiva
-- Hero section com call-to-action
-- Seção "Sobre" com habilidades
-- Showcase de aplicativos
-- Seção de contato com links sociais
-- Footer
+1. Abra `index.html` no navegador.
 
-### styles.css
-- Design em glassmorphism
-- Gradientes modenos (Indigo → Purple → Pink)
-- Animações suaves
-- Responsividade completa
-- Modo escuro
+Opcao 2 (recomendado para desenvolvimento):
 
-### script.js
-- Menu hamburger para mobile
-- Scroll suave
-- Observador de intersecção para animações
-- Geração de estrelas de fundo
-- Animações de skill bars
-- Ativa links de navegação baseado em scroll
+1. Rode um servidor local (exemplo com Python):
 
-### app-ads.txt
-- Arquivo pré-configurado com seu ID do AdMob
-- Pronto para ser publicado
-
-## 🌐 Como Subir no GitHub
-
-### 1. Criar um repositório
 ```bash
-# Acesse https://github.com/new
-# Crie um repositório chamado "developer-portfolio"
+cd web-page
+python3 -m http.server 8080
 ```
 
-### 2. Clonar e configurar localmente
-```bash
-# Clone o repositório
-git clone https://github.com/seu-usuario/developer-portfolio.git
+2. Acesse:
 
-# Entre na pasta
-cd developer-portfolio
-
-# Inicialize o Git (se não tiver clonado)
-git init
+```text
+http://localhost:8080
 ```
 
-### 3. Adicionar seus arquivos
+## Como Publicar
+
+Observacao importante: este repositorio nao possui configuracao dedicada de plataforma (`vercel.json`, `netlify.toml` ou pipeline). As opcoes abaixo sao apenas alternativas de hospedagem para um site estatico.
+
+### GitHub Pages
+
+1. Suba o projeto para um repositorio.
+2. Em Settings > Pages, selecione a branch principal e a raiz (`/`).
+3. Aguarde a publicacao e acesse a URL gerada.
+
+### Vercel
+
 ```bash
-# Copie os arquivos (index.html, styles.css, script.js, app-ads.txt) para a pasta do repositório
-
-# Adicione todos os arquivos
-git add .
-
-# Faça um commit
-git commit -m "Initial commit: Portfolio website"
-
-# Envie para o GitHub
-git push -u origin main
-```
-
-### 4. Ativar GitHub Pages
-- Vá para **Settings** do seu repositório
-- Procure por **Pages** no menu lateral
-- Em **Source**, selecione `main branch`
-- A página estará disponível em: `https://seu-usuario.github.io/developer-portfolio/`
-
-## 🌍 Como Subir em um Domínio Próprio
-
-### Opção 1: Usando Vercel (Recomendado - Grátis)
-```bash
-# 1. Instale Vercel CLI
-npm install -g vercel
-
-# 2. Execute na pasta do projeto
+npm i -g vercel
 vercel
-
-# 3. Siga as instruções
-# 4. Seu site estará em uma URL Vercel
-
-# 5. Para conectar um domínio:
-# - Vá para https://vercel.com
-# - Selecione seu projeto
-# - Vá para Settings > Domains
-# - Adicione seu domínio
 ```
 
-### Opção 2: Usando Netlify (Grátis)
-```bash
-# 1. Faça login em netlify.com
-# 2. Clique em "New site from Git"
-# 3. Selecione seu repositório GitHub
-# 4. Clique Deploy
-# 5. Para domínio próprio, vá em Settings > Domain Management
-```
+Se voce nao usa Vercel, pode ignorar esta secao sem impacto no projeto.
 
-### Opção 3: Servidor Web Tradicional
-Se você tem um servidor ou hosting:
+### Netlify
 
-#### Via FTP
-1. Abra um cliente FTP (FileZilla, WinSCP)
-2. Conecte-se ao seu hosting
-3. Copie todos os arquivos para a pasta `public_html` ou `www`
-4. Pronto! Seu site estará no ar
+1. New site from Git
+2. Selecione o repositorio
+3. Deploy
 
-#### Via SSH
-```bash
-# 1. Conecte-se ao servidor
-ssh seu-usuario@seu-dominio.com
+Se voce nao usa Netlify, pode ignorar esta secao sem impacto no projeto.
 
-# 2. Navegue até a pasta web
-cd /home/seu-usuario/public_html
+## App-ads.txt (AdMob)
 
-# 3. Clone seu repositório GitHub
-git clone https://github.com/seu-usuario/developer-portfolio.git .
+Arquivo atual:
 
-# 4. Seu site estará pronto!
-```
-
-## 📌 App-ads.txt - Verificação AdMob
-
-O arquivo `app-ads.txt` já está configurado com seu ID do AdMob:
-```
+```text
 google.com, pub-9322219809481726, DIRECT, f08c47fec0942fa0
 ```
 
-**Importante:** Este arquivo DEVE estar na raiz do seu domínio:
-- ✅ Correto: `seu-dominio.com/app-ads.txt`
-- ❌ Incorreto: `seu-dominio.com/pasta/app-ads.txt`
+Regra critica: o arquivo precisa estar exatamente na raiz do dominio.
 
-### Passos para verificação no AdMob:
-1. Acesse [AdMob](https://admob.google.com)
-2. Vá para **Apps** e selecione seu app
-3. Acesse **App settings**
-4. Procure por **App-ads.txt**
-5. Verifique se o arquivo está acessível
-6. Clique em **Verify** e aguarde a verificação
+- Correto: `https://seu-dominio.com/app-ads.txt`
+- Incorreto: `https://seu-dominio.com/pasta/app-ads.txt`
 
-## 🎨 Personalizações
+## Mapeamento Tecnico dos Arquivos
 
-### Mudar cores
-Edite em `styles.css`:
+### `index.html`
+
+Contem:
+
+- Estrutura de secoes (`home`, `about`, `apps`, `reviews`, `experience`, `contact`)
+- Cards dos 3 apps com links para Play Store e App Store
+- Comentarios positivos destacados
+- Blocos semanticos para animacoes (`reveal`, `tilt`, `stat-number`, etc.)
+
+### `styles.css`
+
+Contem:
+
+- Variaveis de tema em `:root`
+- Sistema visual completo (background FX, glow, gradientes, glass)
+- Animacoes (`drift`, `shine`, `pulse`, `floaty`, etc.)
+- Layout responsivo com breakpoints para mobile e tablet
+- Ajustes de acessibilidade para reduzir movimento
+
+### `script.js`
+
+Contem:
+
+- Particulas em canvas
+- Typing effect do subtitulo do hero
+- Scroll progress + comportamento da navbar
+- Menu hamburger mobile
+- Intersection Observer para reveal
+- Contadores animados das estatisticas
+- Cursor glow (apenas pointer fino)
+- Efeito 3D tilt nos cards de skills
+- Duplicacao dos cards de review para loop infinito
+- Highlight automatico do link ativo no menu
+
+## Fontes de Dados dos Apps
+
+- Os icones e screenshots dos apps Android sao carregados por URLs oficiais da Play Store.
+- O icone do app iOS e carregado por URL oficial da App Store.
+- As frases de avaliacoes destacadas foram baseadas em comentarios positivos publicos nas lojas.
+
+## Personalizacao Rapida
+
+### 1) Alterar paleta e identidade visual
+
+Edite as variaveis em `styles.css`:
+
 ```css
 :root {
-    --primary: #6366f1;        /* Cor primária */
-    --secondary: #8b5cf6;      /* Cor secundária */
-    --accent: #ec4899;         /* Cor de destaque */
+    --primary: #6366f1;
+    --secondary: #a855f7;
+    --accent: #22d3ee;
+    --pink: #ec4899;
 }
 ```
 
-### Atualizar informações
-Edite em `index.html`:
-- Nome do desenvolvedor
-- Links de redes sociais
-- Aplicativos (nome, descrição, link)
-- Email de contato
+### 2) Alterar textos e secoes
 
-### Adicionar mais aplicativos
-No `index.html`, na seção `<!-- Apps Section -->`, copie o bloco `.app-card` e adapte.
+Edite `index.html` (titulos, descricoes, links e CTAs).
 
-## 📱 Responsividade
+### 3) Alterar comportamento dos efeitos
 
-O site é totalmente responsivo para:
-- 📱 Dispositivos móveis (320px+)
-- 📱 Tablets (768px+)
-- 🖥️ Desktops (1024px+)
+Edite `script.js`:
 
-## 🔗 Links Importantes
+- quantidade de particulas (`COUNT`)
+- velocidade/intervalo do typing effect
+- thresholds de animacao por scroll
 
-- [GitHub Pages Docs](https://docs.github.com/en/pages)
-- [Vercel Docs](https://vercel.com/docs)
-- [Netlify Docs](https://docs.netlify.com/)
-- [AdMob Help](https://support.google.com/admob)
-- [App-ads.txt Specification](https://iabtechlab.com/ads-txt/)
+## Manutencao Recomendada
 
-## 📝 Próximos Passos
+- Revisar periodicamente notas e contagem de avaliacoes dos apps
+- Verificar se URLs remotas de imagens continuam validas
+- Atualizar links sociais e de lojas quando necessario
+- Testar em mobile apos qualquer ajuste de layout
 
-1. ✅ Personalize `index.html` com suas informações
-2. ✅ Suba para GitHub
-3. ✅ Escolha uma opção de hosting (Vercel, Netlify ou servidor próprio)
-4. ✅ Configure seu domínio
-5. ✅ Verifique o `app-ads.txt` no AdMob
-6. ✅ Atualize o link do desenvolvedor na Google Play
+## Troubleshooting
 
-## 🆘 Troubleshooting
+### Imagens de loja nao carregam
 
-### Arquivo app-ads.txt não encontrado
-- Certifique-se de que está na raiz do domínio
-- Verifique permissões de acesso (chmod 644)
-- Limpe o cache do navegador
+- Verifique conexao com internet
+- Confirme se as URLs externas ainda estao ativas
+- Se quiser estabilidade total, baixe os assets e hospede localmente em `assets/`
 
-### Imagens não carregam
-- Todas as imagens são ícones de fonte (Font Awesome)
-- Se não aparecerem, verifique conexão com CDN
+### Animacoes pesadas em dispositivo antigo
 
-### Site lento
-- Comprima imagens (se adicionar)
-- Minifique CSS e JavaScript em produção
-- Use CDN para arquivos estáticos
+- Reduza `COUNT` de particulas em `script.js`
+- Simplifique sombras e blur no `styles.css`
+- Mantenha `prefers-reduced-motion` habilitado
 
-## 📄 Licença
+### app-ads.txt nao reconhecido no AdMob
 
-Este projeto é livre para uso pessoal e comercial.
+- Confirme que o arquivo esta na raiz publica
+- Acesse a URL diretamente no navegador e valide retorno 200
+- Aguarde o tempo de propagacao do AdMob
 
----
+## Roadmap Sugerido
 
-**Criado com ❤️ para sua presença digital**
+- Adicionar analytics (GA4 ou Plausible)
+- Adicionar selecao de idioma (PT/EN)
+- Migrar screenshots remotos para assets locais otimizados
+- Incluir secao de cases tecnicos (Cloud/FinOps)
+
+## Licenca
+
+Uso livre para fins pessoais e comerciais.
+
+Se for redistribuir, mantenha os creditos autorais e ajuste os dados pessoais/links para o seu contexto.
